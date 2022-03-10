@@ -1,15 +1,36 @@
 import React from 'react'
 import icon from '../../assets/icn-likha-logo.png'
-import { useState } from 'react';
+import { useNavigate } from "react-router";
+import { useState, useEffect } from 'react';
 
 const Login = () => {
+
+  let navigate = useNavigate();
 
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
 
-  console.log(form)
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(form)
+  };
+
+  const handleLoginPress = () => {
+    fetch("http://localhost:8080/api/users/login", requestOptions)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result)
+        if (result?.length) {
+          navigate("/register", { replace: true })
+        }
+      }
+    )
+  }
+
   return (
     <div style={styles.containerIndex}>
       <div style={styles.containerHeader}>
@@ -19,11 +40,11 @@ const Login = () => {
       <div style={styles.containerForm}>
         <div style={styles.containerInput}>
           <span style={styles.fontInputTitle}>Email</span>
-          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, name: e.target.value }))} />
+          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, email: e.target.value }))} />
           <span style={styles.fontInputTitle}>Password</span>
           <input type={'password'} style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, password: e.target.value }))} />
         </div>
-        <div style={styles.containerButton}>
+        <div onClick={() => handleLoginPress()} style={styles.containerButton}>
           <span style={styles.fontButton}>Login</span>
         </div>
       </div>
