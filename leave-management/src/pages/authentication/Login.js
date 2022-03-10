@@ -8,8 +8,8 @@ const Login = () => {
   let navigate = useNavigate();
 
   const [form, setForm] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const requestOptions = {
@@ -19,16 +19,20 @@ const Login = () => {
   };
 
   const handleLoginPress = () => {
-    fetch("http://localhost:8080/api/users/login", requestOptions)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        console.log(result)
-        if (result?.length) {
-          navigate("/register", { replace: true })
-        }
-      }
-    )
+    // fetch("http://localhost:8080/api/users/login", requestOptions)
+    //   .then(res => res.json())
+    //   .then(
+    //     (result) => {
+    //       console.log(result)
+    //       if (result?.length) {
+    //         navigate("/register", { replace: true })
+    //       }
+    //     }
+    //   )
+    navigate("/register", { replace: true })
+  }
+  const handleOnChange = ({ target: { name, value } }) => {
+    setForm(prev => ({ ...prev, [name]: value }))
   }
 
   return (
@@ -40,9 +44,9 @@ const Login = () => {
       <div style={styles.containerForm}>
         <div style={styles.containerInput}>
           <span style={styles.fontInputTitle}>Email</span>
-          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, email: e.target.value }))} />
+          <input name="email" style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Password</span>
-          <input type={'password'} style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, password: e.target.value }))} />
+          <input name="password" type={'password'} style={styles.fieldInput} onChange={handleOnChange} />
         </div>
         <div onClick={() => handleLoginPress()} style={styles.containerButton}>
           <span style={styles.fontButton}>Login</span>
@@ -147,4 +151,5 @@ const styles = {
   }
 }
 
-export default Login
+
+export default Login;

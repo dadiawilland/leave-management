@@ -13,6 +13,10 @@ const Register = () => {
     department: ''
   });
 
+  const handleOnChange = ({ target: { name, value } }) => {
+    setForm(prev => ({ ...prev, [name]: value }))
+  }
+
   return (
     <div style={styles.containerIndex}>
       <div style={styles.containerHeader}>
@@ -22,17 +26,17 @@ const Register = () => {
       <div style={styles.containerForm}>
         <div style={styles.containerInput}>
           <span style={styles.fontInputTitle}>Email</span>
-          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, email: e.target.value }))} />
+          <input name="email" style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Password</span>
-          <input type={'password'} style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, password: e.target.value }))} />
+          <input name="password" type={'password'} style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Confirm Password</span>
-          <input type={'password'} style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, confirmPassword: e.target.value }))} />
+          <input name="confirmPassword" type={'password'} style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Contact Number</span>
-          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, contactNumber: e.target.value }))} />
+          <input name="contactNumber" style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Address</span>
-          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, address: e.target.value }))} />
+          <input name="address" style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Department</span>
-          <input style={styles.fieldInput} onChange={e => setForm(prev => ({ ...prev, department: e.target.value }))} />
+          <input name="department" style={styles.fieldInput} onChange={handleOnChange} />
         </div>
         <div style={styles.containerButton}>
           <span style={styles.fontButton}>Submit</span>
