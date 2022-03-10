@@ -6,21 +6,21 @@ const Index = () => {
     return (
         <div style={styles.containerIndex}>
             <div style={styles.containerHeader}>
-                <img style={styles.imgIcon} src={icon} alt="Likha logo"/>
+                <img style={styles.imgIcon} src={icon} alt="Likha logo" />
                 <span style={styles.fontHeader}>Leave Management System</span>
             </div>
             <div style={styles.containerForm}>
                 <div style={styles.containerInput}>
                     <span style={styles.fontInputTitle}>Email</span>
-                    <input style={styles.fieldInput}/>
+                    <input style={styles.fieldInput} />
                     <span style={styles.fontInputTitle}>Password</span>
-                    <input type={'password'} style={styles.fieldInput}/>
+                    <input type={'password'} style={styles.fieldInput} />
                 </div>
                 <div style={styles.containerButton}>
                     <span style={styles.fontButton}>Login</span>
                 </div>
             </div>
-            <span style={styles.fontFooter}>Don't have and account yet? Register   
+            <span style={styles.fontFooter}>Don't have and account yet? Register
                 <span style={styles.fontLink}>  here</span>
             </span>
         </div>
