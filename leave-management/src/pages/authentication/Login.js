@@ -2,6 +2,7 @@ import React from 'react'
 import icon from '../../assets/icn-likha-logo.png'
 import { useNavigate } from "react-router";
 import { useState, useEffect } from 'react';
+import { login } from '../../services/user.service';
 
 const Login = () => {
 
@@ -12,24 +13,8 @@ const Login = () => {
     password: "",
   });
 
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(form)
-  };
-
   const handleLoginPress = () => {
-    // fetch("http://localhost:8080/api/users/login", requestOptions)
-    //   .then(res => res.json())
-    //   .then(
-    //     (result) => {
-    //       console.log(result)
-    //       if (result?.length) {
-    //         navigate("/register", { replace: true })
-    //       }
-    //     }
-    //   )
-    navigate("/register", { replace: true })
+    login(form)
   }
   const handleOnChange = ({ target: { name, value } }) => {
     setForm(prev => ({ ...prev, [name]: value }))

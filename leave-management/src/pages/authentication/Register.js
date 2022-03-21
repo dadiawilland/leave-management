@@ -1,6 +1,7 @@
 import React from 'react'
 import icon from '../../assets/icn-likha-logo.png'
 import { useState } from 'react';
+import { register } from '../../services/user.service';
 
 const Register = () => {
 
@@ -12,6 +13,10 @@ const Register = () => {
     address: '',
     department: ''
   });
+
+  const handleRegisterPress = () => {
+    register(form)
+  }
 
   const handleOnChange = ({ target: { name, value } }) => {
     setForm(prev => ({ ...prev, [name]: value }))
@@ -30,15 +35,15 @@ const Register = () => {
           <span style={styles.fontInputTitle}>Password</span>
           <input name="password" type={'password'} style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Confirm Password</span>
-          <input name="confirmPassword" type={'password'} style={styles.fieldInput} onChange={handleOnChange} />
+          <input name="confirm_password" type={'password'} style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Contact Number</span>
-          <input name="contactNumber" style={styles.fieldInput} onChange={handleOnChange} />
+          <input name="contact_number" style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Address</span>
           <input name="address" style={styles.fieldInput} onChange={handleOnChange} />
           <span style={styles.fontInputTitle}>Department</span>
           <input name="department" style={styles.fieldInput} onChange={handleOnChange} />
         </div>
-        <div style={styles.containerButton}>
+        <div onClick={() => handleRegisterPress()} style={styles.containerButton}>
           <span style={styles.fontButton}>Submit</span>
         </div>
       </div>

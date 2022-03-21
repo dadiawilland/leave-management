@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 // import { useLocation } from "react-router-dom";
 import Login from './pages/authentication/Login'
 import Register from './pages/authentication/Register'
-import Users from './pages/Users'
+import Users from "./pages/top/Users";
+import Index from "./pages/Index";
 const queryClient = new QueryClient()
 
 
@@ -20,8 +21,8 @@ const App = () => {
             <Route exact path='/login' element={
               <Login />
             } />
-            <Route exact path='/users' element={
-              <Users />
+            <Route exact path='/' element={
+              <Index />
             } />
           </Routes>
         </QueryClientProvider>
