@@ -6,51 +6,31 @@ import CustomTable from '../../components/CustomTable'
 
 const Users = () => {
 
-  const theadData = ["Name", "Email", "Date"];
+  const theadData = ["ID", "Name", "Email", "Date"];
 
   const tbodyData = [
     {
       id: "1",
-      items: ["John", "john@email.com", "01/01/2021"],
+      items: ["1", "John", "john@email.com", "01/01/2021"],
     },
     {
       id: "2",
-      items: ["Sally", "sally@email.com", "12/24/2020"],
+      items: ["2", "Sally", "sally@email.com", "12/24/2020"],
     },
     {
       id: "3",
-      items: ["Maria", "maria@email.com", "12/01/2020"],
+      items: ["3", "Maria", "maria@email.com", "12/01/2020"],
+    },
+    {
+      id: "4",
+      items: ["4", "Maria", "maria@email.com", "12/01/2020"],
     },
   ];
 
   return (
     <div style={styles.containerUser}>
       <div style={styles.containerIndex}>
-        {/* <MaterialTable
-
-          icons={tableIcons}
-          columns={[
-            { title: 'Full Name', field: 'fullName' },
-            { title: 'Contact', field: 'contactNum' },
-            { title: 'Address', field: 'address' },
-            { title: 'Department', field: 'department' },
-            { title: 'Email', field: 'email' },
-            { title: 'Avatar', field: 'avatar' },
-            { title: 'Role', field: 'role' },
-          ]}
-
-          data={[{
-            fullName: 'test',
-            contactNum: 'test',
-            address: 'test',
-            department: 'test',
-            email: 'test',
-            avatar: 'test',
-            role: 'test'
-          }]}
-          // data={[{ name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 }]}
-          title="Demo Title"
-        /> */}
+        <span style={styles.fontTitle}>User Management</span>
         <CustomTable
           theadData={theadData} 
           tbodyData={tbodyData}
@@ -62,13 +42,26 @@ const Users = () => {
 }
 
 const styles = {
-  containeruser: {
+  containerUser: {
     alignSelf: 'center',
-    width: '100%'
+    minWidth: 'calc(100vw - 76px)',
+    height: '100vh'
   },
   containerIndex: {
-    width: '100%'
+    width: 'auto',
+    // height: '100vh',
+    paddingInline: 50,
+    paddingBlock: 24,
+    display: 'flex',
+    flexDirection: 'column'
   },
+  fontTitle: {
+    fontSize: 24,
+    color: '#0F4C81',
+    marginBottom: 24,
+    fontWeight: 400
+
+  }
 
 }
 

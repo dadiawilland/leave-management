@@ -6,6 +6,7 @@ import Login from './pages/authentication/Login'
 import Register from './pages/authentication/Register'
 import Users from "./pages/top/Users";
 import Index from "./pages/Index";
+import Detail from "./pages/Detail";
 const queryClient = new QueryClient()
 
 
@@ -24,6 +25,12 @@ const App = () => {
             <Route exact path='/' element={
               <Index />
             } />
+            {['/', '/users', '/applications'].map(path => 
+              <Route key={path} path={path} element={<Index />} />
+            )}
+            {[ '/user/:id', '/applications/:id'].map(path => 
+              <Route key={path} path={path} element={<Detail />} />
+            )}
           </Routes>
         </QueryClientProvider>
       </BrowserRouter>

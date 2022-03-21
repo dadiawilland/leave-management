@@ -26,7 +26,7 @@ const Register = () => {
     <div style={styles.containerIndex}>
       <div style={styles.containerHeader}>
         <img style={styles.imgIcon} src={icon} alt="Likha logo" />
-        <span style={styles.fontHeader}>Leave Management System</span>
+        <span style={styles.fontHeader}>HR Management System</span>
       </div>
       <div style={styles.containerForm}>
         <div style={styles.containerInput}>
@@ -57,7 +57,7 @@ const Register = () => {
 const styles = {
   containerIndex: {
     minHeight: '100vh',
-    backgroundColor: '#FFFFF7',
+    backgroundColor: '#FEFEFE',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -102,10 +102,10 @@ const styles = {
     marginBottom: 15
   },
   fontHeader: {
-    fontSize: 32,
+    fontSize: 24,
     marginLeft: 19,
     color: '#0F4C81',
-    fontWeight: 700
+    fontWeight: 400
   },
   fontButton: {
     alignSelf: 'center',

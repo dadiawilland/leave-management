@@ -6,16 +6,21 @@ import InsertDriveFile from '@material-ui/icons/InsertDriveFile';
 import MeetingRoom from '@material-ui/icons/MeetingRoom'
 import Users from './top/Users';
 import CustomNav from '../components/CustomNav';
+import UserDetails from './details/UserDetails';
 
 import { useLocation } from "react-router-dom";
-const Index = () => {
+const Detail = () => {
 
     const location = useLocation().pathname
 
     const renderBody = (loc) => {
-      switch(loc) {
-        case '/users':
-            return <Users/>;
+      let path_arr = loc.split('/')
+      let path = path_arr[1]
+      let id = path_arr[path_arr.length - 1]
+      
+      switch(path) {
+        case 'user':
+            return <UserDetails id={id}/>;
         case '/applications':
             return <Users/>;
         default:
@@ -31,7 +36,7 @@ const Index = () => {
     )
 }
 
-export default Index
+export default Detail
 
 const styles = {
     containerIndex: {
